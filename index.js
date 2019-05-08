@@ -15,9 +15,11 @@ function main() {
     formData.append('myfile', file);
 
     const xhr = new XMLHttpRequest();
+    // Start
     xhr.upload.onloadstart = function(event) {
       console.log('onloadstart', event);
     };
+    // Progress
     xhr.upload.onprogress = function(event) {
       console.log('onprogress', event);
       if (event.lengthComputable) {
@@ -28,12 +30,19 @@ function main() {
         console.log('Unable to compute progress information since the total size is unknown');
       }
     };
+    // Failure
     xhr.upload.onerror = function(event) {
       console.log('onerror', event);
     };
+    // Cancellation
     xhr.upload.onabort = function(event) {
       console.log('onabort', event);
     };
+    // Success
+    xhr.upload.onload = function(event) {
+      console.log('onload', event);
+    };
+    // End
     xhr.upload.onloadend = function(event) {
       console.log('onloadend', event);
     };
