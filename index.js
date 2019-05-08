@@ -6,6 +6,8 @@ function main() {
   }
 
   const fileInput = document.getElementById('file-input');
+  const progressBarElement = document.getElementById('progress-bar');
+  const progressPercentageElement = document.getElementById('progress-percentage');
 
   fileInput.onchange = function() {
     const file = fileInput.files[0];
@@ -19,8 +21,9 @@ function main() {
     xhr.upload.onprogress = function(event) {
       console.log('onprogress', event);
       if (event.lengthComputable) {
-        const percentComplete = event.loaded / event.total * 100;
-        console.log(`${percentComplete}%`);
+        const percentComplete = Math.round(event.loaded / event.total * 100);
+        progressBarElement.style.width = `${percentComplete}%`;
+        progressPercentageElement.innerText = percentComplete;
       } else {
         console.log('Unable to compute progress information since the total size is unknown');
       }

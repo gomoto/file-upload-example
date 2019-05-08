@@ -1,10 +1,30 @@
 <html>
 <head>
   <title>File upload</title>
+  <style>
+    #progress {
+      display: block;
+      height: 4px;
+      width: 100px;
+      border: 1px solid #000000;
+    }
+    #progress-bar {
+      display: block;
+      height: 100%;
+      width: 0;
+      background-color: #000000;
+    }
+    #progress-percentage::after {
+      content: "%";
+    }
+  </style>
 </head>
 <body>
   <input type="file" id="file-input">
-  <span id="upload-progress"></span>
+  <div id="progress">
+    <div id="progress-bar"></div>
+    <span id="progress-percentage">0</span>
+  </div>
   <script src="index.js"></script>
 </body>
 </html>
