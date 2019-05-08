@@ -10,6 +10,7 @@ app.post('/upload', fileUploadMiddleware, (req, res) => {
   // print file information
   console.log('file content:', req.file.buffer.toString());
   console.log('file details:', req.file);
+  console.log('body details:', req.body);
   res.sendStatus(200);
 });
 

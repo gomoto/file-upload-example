@@ -14,6 +14,7 @@ function main() {
     const formData = new FormData();
     // server returns 500 when FormData name does not match expected name (myfile).
     formData.append('myfile', file);
+    formData.append('mytext', 'Hello, World!');
 
     const xhr = new XMLHttpRequest();
     // Start
