@@ -12,6 +12,7 @@ function main() {
   fileInput.onchange = function() {
     const file = fileInput.files[0];
     const formData = new FormData();
+    // server returns 500 when FormData name does not match expected name (myfile).
     formData.append('myfile', file);
 
     const xhr = new XMLHttpRequest();
