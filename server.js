@@ -18,6 +18,9 @@ app.listen(3000, () => {
 });
 
 function fileUploadMiddleware(req, res, next) {
+  // The default multer storage engine buffers the file.
+  // To stream the file, create a custom storage engine:
+  // https://github.com/expressjs/multer/blob/32ec11698624d4ebd6edb037f4a520c0fa323548/StorageEngine.md
   multer().single('myfile')(req, res, (error) => {
     if (error instanceof multer.MulterError) {
       // multer throws and error when FormData name does not match expected name (myfile)
