@@ -46,7 +46,7 @@ function main() {
     xhr.upload.onloadend = function(event) {
       console.log('onloadend', event);
     };
-    xhr.open('POST', 'http://localhost:3000/upload', true);
+    xhr.open('POST', '/upload', true);
     xhr.send(formData);
   }
 }
