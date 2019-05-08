@@ -6,9 +6,8 @@ const app = express();
 app.use(express.static(__dirname));
 
 app.post('/upload', fileUploadMiddleware, (req, res) => {
-  console.log('file', req.file);
-  console.log(req.file.buffer.toString());
-  console.log('body', req.body);
+  console.log('file content:', req.file.buffer.toString());
+  console.log('file details:', req.file);
   res.sendStatus(200);
 });
 
