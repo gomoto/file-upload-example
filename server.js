@@ -1,9 +1,14 @@
 const express = require('express');
+const cors = require('cors');
 
 const app = express();
 
-app.use('/upload', (req, res) => {
-  console.log(req);
+app.use(cors({
+  origin: 'http://localhost:8000',
+}))
+
+app.post('/upload', (req, res) => {
+  console.log(req.body);
   res.sendStatus(200);
 });
 
